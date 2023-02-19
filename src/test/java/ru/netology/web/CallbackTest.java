@@ -12,8 +12,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
+
 public class CallbackTest {
     private static WebDriver driver;
+
 
     @BeforeAll
     static void setUpAll() {
@@ -37,7 +39,7 @@ public class CallbackTest {
     }
 
     @Test
-    void shouldTest() throws InterruptedException {
+    void shouldTest()  {
         driver.get("http://localhost:9999/");
         driver.findElement(By.cssSelector("input[type='text']")).sendKeys("Исаева Елена");
         driver.findElement(By.cssSelector("input[type='tel']")).sendKeys("+71234567890");
