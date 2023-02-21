@@ -17,7 +17,6 @@ public class CallbackTest {
 
     @BeforeAll
     static void setUpAll() {
-
         WebDriverManager.chromedriver().setup();
     }
 
@@ -33,6 +32,7 @@ public class CallbackTest {
     @AfterEach
     void tearDown() {
         driver.quit();
+        driver = null;
     }
 
     @Test
@@ -43,7 +43,7 @@ public class CallbackTest {
         driver.findElement(By.tagName("label")).click();
         driver.findElement(By.className("button__text")).click();
         String expected = "  Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
-        String actual = driver.findElement(By.tagName("p")).getText();
+        String actual = driver.findElement(By.cssSelector("[data-test-id=order-success]")).getText();
         assertEquals(expected, actual);
     }
 }
